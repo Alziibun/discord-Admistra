@@ -14,13 +14,3 @@ class Configuration:
             data = json.load(file.read())
             return args[-1](data)
 
-    @staticmethod
-    def setting(file, name):
-        while (line := file.readline()) != "":
-
-
-
-    @read
-    def load_setting(self, content, setting_name):
-
-
