@@ -1,6 +1,12 @@
 import os
 import discord
 from dotenv import load_dotenv
+print("Checking for .env file...")
+if not os.path.exists(".env"):
+    with open(".env", "w") as file:
+        print("Environment file not found, creating a new one.")
+        discord_token = input("Insert Discord Bot Token: ")
+        file.write(f"DISCORD_TOKEN={discord_token}")
 load_dotenv(override=True)
 
 intents = discord.Intents.default()
@@ -15,7 +21,7 @@ bot = discord.Bot(intents=intents, debug_guilds=[1108473633191501935])
 async def on_ready():
     print('Logged on as {0}!'.format(bot.user))
 
-if __name__ == "__main__":xt
+if __name__ == "__main__":
     for ex in os.listdir(os.getcwd() + '/cogs'):
         try:
             ex = ex.split('.')[0]
